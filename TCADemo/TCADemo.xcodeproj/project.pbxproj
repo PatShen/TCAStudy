@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5FCC0D602D245B780027CBDF /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 5FCC0D5F2D245B780027CBDF /* ComposableArchitecture */; };
+		5FCC0D622D245B780027CBDF /* ComposableArchitectureTestSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 5FCC0D612D245B780027CBDF /* ComposableArchitectureTestSupport */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		5F1982F02D2451DC00957075 /* TCADemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCADemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +28,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FCC0D622D245B780027CBDF /* ComposableArchitectureTestSupport in Frameworks */,
+				5FCC0D602D245B780027CBDF /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +72,8 @@
 			);
 			name = TCADemo;
 			packageProductDependencies = (
+				5FCC0D5F2D245B780027CBDF /* ComposableArchitecture */,
+				5FCC0D612D245B780027CBDF /* ComposableArchitectureTestSupport */,
 			);
 			productName = TCADemo;
 			productReference = 5F1982F02D2451DC00957075 /* TCADemo.app */;
@@ -96,6 +105,7 @@
 			mainGroup = 5F1982E72D2451DC00957075;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+				5FCC0D5E2D245B780027CBDF /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5F1982F12D2451DC00957075 /* Products */;
@@ -325,6 +335,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5FCC0D5E2D245B780027CBDF /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = revision;
+				revision = d2240d0e76c1a758dbadbf737ceefc888b2e807c;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5FCC0D5F2D245B780027CBDF /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FCC0D5E2D245B780027CBDF /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		5FCC0D612D245B780027CBDF /* ComposableArchitectureTestSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FCC0D5E2D245B780027CBDF /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitectureTestSupport;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5F1982E82D2451DC00957075 /* Project object */;
 }
