@@ -32,7 +32,7 @@ let counterReducer = Reducer<Counter, CounterAction, CounterEnvironment> {
         state.count -= 1
         return .none
     }
-}
+}.debug()
 
 struct ContentView: View {
     let store: Store<Counter, CounterAction>

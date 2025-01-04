@@ -10,14 +10,30 @@
 		5FB8CC2C2D29209000E005ED /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 5FB8CC2B2D29209000E005ED /* ComposableArchitecture */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5FB8CC6B2D292A2700E005ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5F1982E82D2451DC00957075 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F1982EF2D2451DC00957075;
+			remoteInfo = TCADemo;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		5F1982F02D2451DC00957075 /* TCADemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCADemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FB8CC672D292A2700E005ED /* TCADemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCADemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		5F1982F22D2451DC00957075 /* TCADemo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = TCADemo;
+			sourceTree = "<group>";
+		};
+		5FB8CC682D292A2700E005ED /* TCADemoTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TCADemoTests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -31,6 +47,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5FB8CC642D292A2700E005ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -38,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				5F1982F22D2451DC00957075 /* TCADemo */,
+				5FB8CC682D292A2700E005ED /* TCADemoTests */,
 				5F1982F12D2451DC00957075 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				5F1982F02D2451DC00957075 /* TCADemo.app */,
+				5FB8CC672D292A2700E005ED /* TCADemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,6 +101,29 @@
 			productReference = 5F1982F02D2451DC00957075 /* TCADemo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5FB8CC662D292A2700E005ED /* TCADemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5FB8CC6D2D292A2700E005ED /* Build configuration list for PBXNativeTarget "TCADemoTests" */;
+			buildPhases = (
+				5FB8CC632D292A2700E005ED /* Sources */,
+				5FB8CC642D292A2700E005ED /* Frameworks */,
+				5FB8CC652D292A2700E005ED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5FB8CC6C2D292A2700E005ED /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				5FB8CC682D292A2700E005ED /* TCADemoTests */,
+			);
+			name = TCADemoTests;
+			packageProductDependencies = (
+			);
+			productName = TCADemoTests;
+			productReference = 5FB8CC672D292A2700E005ED /* TCADemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -89,6 +137,10 @@
 				TargetAttributes = {
 					5F1982EF2D2451DC00957075 = {
 						CreatedOnToolsVersion = 16.2;
+					};
+					5FB8CC662D292A2700E005ED = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 5F1982EF2D2451DC00957075;
 					};
 				};
 			};
@@ -110,12 +162,20 @@
 			projectRoot = "";
 			targets = (
 				5F1982EF2D2451DC00957075 /* TCADemo */,
+				5FB8CC662D292A2700E005ED /* TCADemoTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5F1982EE2D2451DC00957075 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FB8CC652D292A2700E005ED /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -132,7 +192,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5FB8CC632D292A2700E005ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5FB8CC6C2D292A2700E005ED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5F1982EF2D2451DC00957075 /* TCADemo */;
+			targetProxy = 5FB8CC6B2D292A2700E005ED /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		5F1982FC2D2451DD00957075 /* Debug */ = {
@@ -310,6 +385,40 @@
 			};
 			name = Release;
 		};
+		5FB8CC6E2D292A2700E005ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = swx.TCADemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TCADemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TCADemo";
+			};
+			name = Debug;
+		};
+		5FB8CC6F2D292A2700E005ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = swx.TCADemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TCADemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TCADemo";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -331,6 +440,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		5FB8CC6D2D292A2700E005ED /* Build configuration list for PBXNativeTarget "TCADemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FB8CC6E2D292A2700E005ED /* Debug */,
+				5FB8CC6F2D292A2700E005ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -339,7 +457,7 @@
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
 			requirement = {
 				kind = exactVersion;
-				version = 0.3.0;
+				version = 0.39.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
