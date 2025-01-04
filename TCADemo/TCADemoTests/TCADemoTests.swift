@@ -40,4 +40,18 @@ final class TCADemoTests: XCTestCase {
             state.count -= 1
         }
     }
+
+    func testCounterReset() throws {
+        let store = TestStore(
+            initialState: Counter(count: Int.random(in: -100...100)),
+            reducer: counterReducer,
+            environment: CounterEnvironment()
+        )
+        store.send(.increment) { state in
+            state.count += 1
+        }
+        store.send(.reset) { state in
+            state.count = 0
+        }
+    }
 }

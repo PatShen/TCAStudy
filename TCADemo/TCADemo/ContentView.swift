@@ -15,6 +15,7 @@ struct Counter: Equatable {
 enum CounterAction {
     case increment
     case decrement
+    case reset
 }
 
 struct CounterEnvironment {}
@@ -31,6 +32,9 @@ let counterReducer = Reducer<Counter, CounterAction, CounterEnvironment> {
         // 3
         state.count -= 1
         return .none
+    case .reset:
+        state.count = 0
+        return .none
     }
 }.debug()
 
@@ -38,11 +42,14 @@ struct ContentView: View {
     let store: Store<Counter, CounterAction>
     var body: some View {
         WithViewStore(store) { viewStore in
-            HStack {
-                // 1
-                Button("-") { viewStore.send(.decrement) }
-                Text("\(viewStore.count)")
-                Button("+") { viewStore.send(.increment) }
+            VStack {
+                Button("reset") { viewStore.send(.reset) }
+                HStack {
+                    // 1
+                    Button("-") { viewStore.send(.decrement) }
+                    Text("\(viewStore.count)")
+                    Button("+") { viewStore.send(.increment) }
+                }
             }
         }
     }
