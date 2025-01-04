@@ -6,19 +6,54 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
+
+struct Counter: Equatable {
+    var count: Int = 0
+}
+
+enum CounterAction {
+    case increment
+    case decrement
+}
+
+struct CounterEnvironment {}
+
+// 2
+let counterReducer = Reducer<Counter, CounterAction, CounterEnvironment> {
+    state, action, _ in
+    switch action {
+    case .increment:
+        // 3
+        state.count += 1
+        return .none
+    case .decrement:
+        // 3
+        state.count -= 1
+        return .none
+    }
+}
 
 struct ContentView: View {
+    let store: Store<Counter, CounterAction>
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        WithViewStore(store) { viewStore in
+            HStack {
+                // 1
+                Button("-") { viewStore.send(.decrement) }
+                Text("\(viewStore.count)")
+                Button("+") { viewStore.send(.increment) }
+            }
         }
-        .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(
+        store: Store(
+            initialState: Counter(),
+            reducer: counterReducer,
+            environment: CounterEnvironment()
+        )
+    )
 }
