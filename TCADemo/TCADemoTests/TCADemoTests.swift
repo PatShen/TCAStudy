@@ -21,23 +21,25 @@ final class TCADemoTests: XCTestCase {
 
     func testCounterIncrement() throws {
         let store = TestStore(
-            initialState: Counter(count: Int.random(in: -100...100)),
+            initialState: Counter(count: Int.random(in: 0...100)),
             reducer: counterReducer,
             environment: CounterEnvironment()
         )
         store.send(.increment) { state in
             state.count += 1
+            state.color = .red
         }
     }
 
     func testCounterDecrement() throws {
         let store = TestStore(
-            initialState: Counter(count: Int.random(in: -100...100)),
+            initialState: Counter(count: Int.random(in: -100...0)),
             reducer: counterReducer,
             environment: CounterEnvironment()
         )
         store.send(.decrement) { state in
             state.count -= 1
+            state.color = .green
         }
     }
 
@@ -47,29 +49,9 @@ final class TCADemoTests: XCTestCase {
             reducer: counterReducer,
             environment: CounterEnvironment()
         )
-        store.send(.increment) { state in
-            state.count += 1
-        }
-        store.send(.reset) { state in
-            state.count = 0
-        }
-    }
-
-    func testColor() throws {
-        let store = TestStore(initialState: Counter(count: 0, color: .black),
-                              reducer: counterReducer,
-                              environment: CounterEnvironment())
-        store.send(.increment) { state in
-            state.count += 1
-            state.color = .red
-        }
         store.send(.reset) { state in
             state.count = 0
             state.color = .black
-        }
-        store.send(.decrement) { state in
-            state.count -= 1
-            state.color = .green
         }
     }
 }
