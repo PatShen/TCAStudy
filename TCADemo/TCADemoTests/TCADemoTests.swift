@@ -54,4 +54,22 @@ final class TCADemoTests: XCTestCase {
             state.count = 0
         }
     }
+
+    func testColor() throws {
+        let store = TestStore(initialState: Counter(count: 0, color: .black),
+                              reducer: counterReducer,
+                              environment: CounterEnvironment())
+        store.send(.increment) { state in
+            state.count += 1
+            state.color = .red
+        }
+        store.send(.reset) { state in
+            state.count = 0
+            state.color = .black
+        }
+        store.send(.decrement) { state in
+            state.count -= 1
+            state.color = .green
+        }
+    }
 }

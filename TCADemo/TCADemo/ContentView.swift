@@ -10,6 +10,7 @@ import ComposableArchitecture
 
 struct Counter: Equatable {
     var count: Int = 0
+    var color: Color = .black
 }
 
 enum CounterAction {
@@ -27,16 +28,23 @@ let counterReducer = Reducer<Counter, CounterAction, CounterEnvironment> {
     case .increment:
         // 3
         state.count += 1
-        return .none
     case .decrement:
         // 3
         state.count -= 1
-        return .none
     case .reset:
         state.count = 0
-        return .none
     }
+    state.color = getColor(count: state.count)
+    return .none
 }.debug()
+
+private func getColor(count: Int) -> Color {
+    switch count {
+    case 1...: .red
+    case ..<0: .green
+    default: .black
+    }
+}
 
 struct ContentView: View {
     let store: Store<Counter, CounterAction>
@@ -48,6 +56,9 @@ struct ContentView: View {
                     // 1
                     Button("-") { viewStore.send(.decrement) }
                     Text("\(viewStore.count)")
+                        .foregroundStyle(
+                            viewStore.color
+                        )
                     Button("+") { viewStore.send(.increment) }
                 }
             }
