@@ -13,10 +13,18 @@ struct Counter: Equatable {
     var color: Color = .black
 }
 
+extension Counter {
+    var counterString: String {
+        get { String(count) }
+        set { count = Int(newValue) ?? count }
+    }
+}
+
 enum CounterAction {
     case increment
     case decrement
     case reset
+    case setCount(String)
 }
 
 struct CounterEnvironment {}
@@ -33,6 +41,8 @@ let counterReducer = Reducer<Counter, CounterAction, CounterEnvironment> {
         state.count -= 1
     case .reset:
         state.count = 0
+    case .setCount(let text):
+        state.counterString = text
     }
     state.color = getColor(count: state.count)
     return .none
@@ -55,10 +65,18 @@ struct ContentView: View {
                 HStack {
                     // 1
                     Button("-") { viewStore.send(.decrement) }
-                    Text("\(viewStore.count)")
-                        .foregroundStyle(
-                            viewStore.color
+                    TextField(
+                        String(viewStore.count),
+                        text: viewStore.binding(
+                            get: \.counterString,
+                            send: CounterAction.setCount
                         )
+                    )
+                    .frame(width: 40)
+                    .multilineTextAlignment(.center)
+                    .foregroundStyle(
+                        viewStore.color
+                    )
                     Button("+") { viewStore.send(.increment) }
                 }
             }
