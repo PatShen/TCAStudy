@@ -54,4 +54,16 @@ final class TCADemoTests: XCTestCase {
             state.color = .black
         }
     }
+
+    func testSingleBinding() throws {
+        let store = TestStore(
+            initialState: Counter(count: 1),
+            reducer: counterReducer,
+            environment: CounterEnvironment()
+        )
+        store.send(.setCount("3")) { state in
+            state.counterString = "3"
+            state.color = .red
+        }
+    }
 }
