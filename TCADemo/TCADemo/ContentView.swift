@@ -8,6 +8,34 @@
 import SwiftUI
 import ComposableArchitecture
 
+// pseudo code
+/*
+struct MyState: Equatable {
+    @BindableState var foo = false
+    @BindableState var bar: String = ""
+}
+
+enum MyAction: BindableAction {
+    case binding(BindingAction<MyState>)
+}
+
+let myReducer = {// ...
+case .binding:
+return .none
+}
+.binding()
+ 
+struct MyView: View {
+    let store: Store<MyState, MyAction>
+    var body: some View {
+        WithViewStore(store) { viewStore in
+            Toggle("Toggle!", isOn: viewStore.binding(\.$foo))
+            TextField("Text Field!", text: viewStore.binding(\.$bar))
+        }
+    }
+}
+*/
+
 struct Counter: Equatable {
     var count: Int = 0
     var color: Color = .black
